@@ -1,0 +1,38 @@
+<head>
+  <title>wallet</title>
+</head>
+
+<body>
+  <h1>Wallet</h1>
+  {{> loginButtons}}
+    <img src="{{mypic}}"/>
+
+{{#if currentUser}}
+    {{#if isDetail}}
+      {{> walletdetail}}
+    {{else}}
+      {{> walletlist}}
+    {{/if}}
+  {{/if}}
+
+
+</body>
+
+<template name="walletlist">
+
+  <button>+</button> <br/>
+  {{#each wallets}}
+  <div name = "wallet" address="{{_id}}">
+  {{label}}: {{_id}}
+  </div>
+  {{/each}}
+
+</template>
+
+<template name = "walletdetail">
+  <center><div id="qrcode"></div></center>
+  <center>{{address}}</center>
+  <center>잔고 : </center>
+  <center>* 거래내역</center>
+
+</template>
